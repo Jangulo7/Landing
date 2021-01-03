@@ -1,59 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Manipulating the DOM</title>
-  <!-- Load Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
-  <link href="css/styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Landing | Jangulo</title>
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  
+    <!-- Load Styles -->
+    <link href="css/main.css" rel="stylesheet">
+    <!-- Load Icons -->
+    <script src="https://kit.fontawesome.com/4a69faab08.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- HTML Follows BEM naming conventions 
-  IDs are only used for sections to connect menu achors to sections -->
-  <header class="page__header">
-    <nav class="navbar__menu">
-      <!-- Navigation starts as empty UL that will be populated with JS -->
-      <ul id="navbar__list"></ul>
-    </nav>
-  </header>
-  <main>
-    <header class="main__hero">
-      <h1>Landing Page </h1>
+    <!-- Header Section -->
+    <header class="page__header">
+        <img src="images/logoJangulo.png" alt="Logo"/>
+        <nav class="navbar__menu">
+            <ul id="navbar__list">
+                <li><a href="#section1" class="active">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#section3">Section 3</a></li>
+            </ul>
+        </nav>
     </header>
-    <!-- Each Section has an ID (used for the anchor) and 
-    a data attribute that will populate the li node.
+    <!-- Main Section -->
+    <div class="main__hero">
+        <h1>Jangulo Landing Page</h1>
+        <button class="btn2" type="submit"><a href="./form.html">Create a new section here</a></button>
+    </div>
+    <!-- Each Section has an ID (used for the anchor) and a data attribute that will populate the li node.
     Adding more sections will automatically populate nav.
     The first section is set to active class by default -->
-    <section id="section1" data-nav="Section 1" class="your-active-class">
-      <div class="landing__container">
-        <h2>Section 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
-
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
+    <section id="section1" data-nav="Section 1" class="">
+        <div class="landing__container">
+            <div class="accordion">
+                <h3>Section 1</h3>
+            </div>
+            <div class="panel">
+                <p>Encouraging <em>girls from a young age to study the essential subjects such as Maths and Science</em>, that open doors for opportunities to go on to pursue a career in Artificial Intelligence, is going to be key to increasing the number of women in the sector in future. However, for women already working in tech who decide they’d like to change to a career in AI, it’s more a case of understanding where they can access the training, networking and resources they need.</p>
+                <p>Narrowing the gender gap in Technology is vital for so many reasons, the most pressing being establishing and sustaining genuine equality and access to opportunity regardless of gender. For AI it’s perhaps even more vital that the future is gender diverse and more and more women are represented in the sector because this technology continues to have an increasing amount of responsibility and influence over daily life. It will be damaging if it reinforces gender bias and inequality rather than becoming a powerful tool in working with us to progress gender equality in Tech and wider society.</p>
+            </div>
+        </div>    
     </section>
-    <section id="section2" data-nav="Section 2">
-      <div class="landing__container">
-        <h2>Section 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
-
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
+    <section id="section2" data-nav="Section 2" class="">
+        <div class="landing__container">  
+            <div class="accordion">
+                <h3>Section 2</h3>
+            </div>
+            <div class="panel">
+                <p>Encouraging <em>girls from a young age to study the essential subjects such as Maths and Science</em>, that open doors for opportunities to go on to pursue a career in Artificial Intelligence, is going to be key to increasing the number of women in the sector in future. However, for women already working in tech who decide they’d like to change to a career in AI, it’s more a case of understanding where they can access the training, networking and resources they need.</p>
+                <p>Narrowing the gender gap in Technology is vital for so many reasons, the most pressing being establishing and sustaining genuine equality and access to opportunity regardless of gender. For AI it’s perhaps even more vital that the future is gender diverse and more and more women are represented in the sector because this technology continues to have an increasing amount of responsibility and influence over daily life. It will be damaging if it reinforces gender bias and inequality rather than becoming a powerful tool in working with us to progress gender equality in Tech and wider society.</p>
+            </div>
+        </div>     
     </section>
-    <section id="section3" data-nav="Section 3">
-      <div class="landing__container">
-        <h2>Section 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
-
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
+    <section id="section3" data-nav="Section 3" class="">
+        <div class="landing__container">  
+             <div class="accordion">
+                <h3>Section 3</h3>
+            </div>
+            <div class="panel">
+                <p>Encouraging <em>girls from a young age to study the essential subjects such as Maths and Science</em>, that open doors for opportunities to go on to pursue a career in Artificial Intelligence, is going to be key to increasing the number of women in the sector in future. However, for women already working in tech who decide they’d like to change to a career in AI, it’s more a case of understanding where they can access the training, networking and resources they need.</p>
+                <p>Narrowing the gender gap in Technology is vital for so many reasons, the most pressing being establishing and sustaining genuine equality and access to opportunity regardless of gender. For AI it’s perhaps even more vital that the future is gender diverse and more and more women are represented in the sector because this technology continues to have an increasing amount of responsibility and influence over daily life. It will be damaging if it reinforces gender bias and inequality rather than becoming a powerful tool in working with us to progress gender equality in Tech and wider society.</p>
+            </div>
+        </div> 
     </section>
-  </main>
-  <footer class="page__footer">
-    <p>&copy Udacity</p>
-  </footer>
-
+    <footer class="page__footer">
+        <h2>© Copyright Jangulo 2020</h2>
+        <!-- Subscribe Form -->
+        <form class="page__footer__inlineForm" id="form-subs">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter email" name="email">
+            <label for="pwd">Password:</label>
+            <input type="password" id="pwd" placeholder="Enter password" name="pswd">
+            <button class="btn2" type="submit">Subscribe</button>
+        </form>        
+        <div>
+            <h2>Follow Me!</h2>
+            <div class="page__footer__social">
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
 </body>
 </html>
+
+  
+  

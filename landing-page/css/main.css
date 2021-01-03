@@ -1,0 +1,403 @@
+/*
+ *
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ * 
+ * For simplicity, no reset or normalize is added. 
+ * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
+ *
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+/* ---- Base Rules ---- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  font: 14px/1.5 "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+
+/* Typeography General*/
+h1 {
+    font: 18px/1.5 600 "Source Sans Pro", sans-serif;
+    color: #582436;
+    margin: 5px 0;
+}
+
+h2 {
+    font: 16px/1.5 400 "Source Sans Pro", sans-serif;
+    color: #b47a7a;
+    margin: 5px 0;
+}
+
+h3 {
+  font: 15px/1.5 300 bold "Source Sans Pro", sans-serif;
+  color: whitesmoke;
+  margin: 5px 0;
+}
+
+p {
+  font: 14px/1.5 "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 10px 0;
+  color: #151015;
+}
+
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+
+.landing__container {
+    padding: 0 5vw 0 5vw;
+    padding: 40px 40px;
+    width: 100%;
+    min-height: 50vh;
+}
+
+/* ---- Module Rules ---- */
+/* Navigation Styles*/
+
+.navbar__menu {
+    padding: 3em;
+    font-family: sans-serif;
+    
+}
+  
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #312626;
+}
+ 
+nav li a {
+    color: whitesmoke;
+    display: block;
+    text-decoration: none;
+    padding: .5em 1em;
+    font-size: 16px;
+}
+  
+nav li a:hover {
+    background:#891337;
+    color: whitesmoke;
+}
+
+/* List Styles */
+/* Remove bullets */
+ul {
+    list-style-type: none;
+}
+  
+/* Remove underline in links */
+a {
+    text-decoration: none;
+}
+
+/* Header Styles */  
+.page__header {
+    display:grid;
+    align-items: flex-end;
+    grid-template-columns: 1fr 3fr;
+    background-color: white;
+}
+
+.page__header a {
+    color: whitesmoke;
+    padding: 10px;
+}
+
+/* Hero section*/
+.main__hero {
+    display:grid;
+    align-items: flex-end;
+    grid-template-columns: 12fr 6fr;
+    margin: 3em 3em;
+}
+
+/* Collapsable section Styles*/    
+.accordion {
+    display: flex;
+    background-color: #312626;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color when you move the mouse over it (hover) */
+.accordion:hover {
+    background-color: #891337;
+}
+  
+/* Style the accordion panel. */
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: block;
+    overflow: hidden;
+}
+
+/* Footer Styles*/    
+.page__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:15px;
+    background-color: #312626;
+    color: whitesmoke;
+    padding: 50px 50px;
+    }
+
+.page__footer__social {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+/* Links Style */
+a:link {
+    color:whitesmoke;
+}
+  
+/* visited link */
+a:visited {
+    color: whitesmoke;
+    font-weight: bold;
+}
+  
+/* mouse over link */
+a:hover {
+    color:#891337;
+    font-weight: bold;
+}
+  
+/* selected link */
+a:active {
+    color: #b47a7a;
+    font-weight: bold;
+}
+
+/* Footer links */
+.page__footer a {
+    font-size: 14px;
+}
+
+/* Subscribe Form */
+/* Style the form - display items horizontally */
+.form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: left;
+    margin: 20px 20px;
+}
+  
+/* Margins for each label */
+  .page__footer__inlineForm label {
+    margin: 5px 10px 5px 0;
+    color: whitesmoke;
+    padding-bottom: 5px;
+}
+  
+/* Input fields Style */
+  .page__footer__inlineForm input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+/* Data Form */
+.data__form {
+    display: grid;
+    justify-items:auto;
+}
+
+.data__form label {
+    color: #891337;
+    font: large bold;
+}
+
+.data__form input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 20px 30px;
+    box-sizing: border-box;
+    background-color: rgb(243, 223, 223);
+    border: 2px solid #ccc;
+}
+
+.data__form textarea {
+    width: 50%;
+    height: 150px;
+    margin: 20px 30px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: rgb(243, 223, 223);
+    resize: none;
+  }
+
+
+/* Button Styles */
+.btn1 {
+    background-color: #891337;
+    border: none;
+    color: whitesmoke;
+    padding: 12px 16px;
+    margin: 20px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 50%;
+}
+
+.btn2 {
+    background-color: #891337;
+    border: none;
+    color: whitesmoke;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+/* Darker background on mouse-over */
+.btn2:hover {
+    background-color: #582436;
+    color: whitesmoke
+}
+
+.btn2 a:hover{
+    color:whitesmoke;
+    font-weight: bold;
+}
+
+/* Media queries */
+/* Medium screens */
+@media(min-width: 600px) and (max-width: 900px) {   
+    nav ul {
+        display: block;
+        justify-content: flex-end;
+    }
+    
+    nav li{
+        flex-grow:1;
+        text-align:center;
+    }
+
+    h1 {
+        font-weight: 600;
+        font-size: x-large;
+    } 
+
+    h2 {
+      font-weight: 400;
+      font-size: larger;
+    }
+    
+    h3 {
+      font-size: larger;
+    }
+
+    p {
+      font-size: larger;
+    }
+}
+
+/* Big screens */  
+@media(min-width: 901px) {       
+    .navbar__menu {
+        font-family: sans-serif;
+    }
+      
+    .navbar__menu ul {
+        list-style: none;
+        background: #312626;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .navbar__menu li{
+        flex-grow:2;
+        text-align:center;
+    }
+      
+    .navbar__menu li a {
+        color: whitesmoke;
+        display: block;
+        text-decoration: none;
+        padding: .5em 1em;
+    }
+      
+    .navbar__menu li a:hover {
+        background:#891337;
+        color: whitesmoke;
+    }
+  
+    h1 {
+        font-weight: 800;
+        font-size: xx-large;
+    } 
+
+    h2 {
+      font-weight: 700;
+      font-size: larger;
+    }
+  
+    h3 {
+      font-size: larger;
+    }
+    
+    p {
+      font-size: larger;
+    }
+
+    em {
+        font-weight: bold;
+    }
+  }
+
+/* Small screens */
+@media(max-width: 900px) {
+    .page__header {
+        float: none;
+        display: block;
+        text-align: left;
+        background-color: white;
+    }
+
+    h1 {
+        font-size: large;
+    }
+
+    h2,
+    a {
+        font-size: smaller;
+    }
+
+    .btn2 {
+        font-size: smaller;
+    }
+}
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+section.active {
+    background: whitesmoke;
+    background: linear-gradient(0deg, #ddbdbd 0%, #891337 60%);
+}
+
