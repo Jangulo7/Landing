@@ -428,6 +428,9 @@ a:active {
 section.active {
     background: linear-gradient(0deg, #ddbdbd 0%,#312626 60%);
     border-radius: 15%;
+}
+
+.active {
     color: whitesmoke;
 }
 

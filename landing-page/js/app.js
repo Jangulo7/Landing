@@ -65,7 +65,7 @@ function addSection(e){
   // Start html //
   // Create new html to insert new elements
   const newSection = document.querySelector('#cont');
-  const htmlTextToAdd = '<section id="sec"><div class="landing__container"><div class="accordion"><h3 id="newTitle"></h3></div><div id="newContent" class="panel"></div></div></section>';
+  const htmlTextToAdd = '<section id="sec"><div class="landing__container"><div class="accordion"><h3 id="newTitle" class=""></h3></div><div id="newContent" class="panel"></div></div></section>';
   newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
     
   // Select location to insert section title
@@ -90,8 +90,9 @@ function addSection(e){
   
   // End html //
 
-  // Change the class to the section added
+  // Change the class to the section added and the text inside
   insertClass.className = 'active';
+  p.className = 'active';
 
   // Add text node with input value to li element
   li.appendChild(document.createTextNode(newTitle));
