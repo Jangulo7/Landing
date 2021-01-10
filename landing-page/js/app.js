@@ -19,17 +19,8 @@
 */
 const form = document.getElementById('addForm');
 const navList = document.getElementById('navbar__list');
+const message = document.getElementById('sd');
   
-  //Create new html to insert new elements
-  const newSection = document.querySelector('#cont');
-  const htmlTextToAdd = '<section><div class="landing__container"><div class="accordion"><h3 id="newTitle"></h3></div><div id="newContent" class="panel"></div></div></section>';
-  newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
-
-  //Select location to insert section title
-  const insertTitle = document.getElementById('newTitle');
-
-  //Select location to insert section content
-  const insertContent = document.getElementById('newContent');
 
 /**
  * End Global Variables
@@ -37,7 +28,10 @@ const navList = document.getElementById('navbar__list');
  * 
 */
 
-
+//Clear the form
+function clearForm() {
+  document.getElementById("addForm").reset();
+}
 
 
 /**
@@ -52,6 +46,7 @@ const navList = document.getElementById('navbar__list');
 // Form submit event
 form.addEventListener('submit', addSection);
 
+
 // Add a Section Title to the navbar and add the section text & author to the main content
 function addSection(e){
   e.preventDefault();
@@ -64,26 +59,61 @@ function addSection(e){
   // Create new li element in the navbar
   const li = document.createElement('li');
 
-  // Add class new elements
-  li.className = 'active';
-
   // Create a new p element in the content area
   const p = document.createElement('p');
 
-  // Add text node with input value
+  // Start html //
+  // Create new html to insert new elements
+  const newSection = document.querySelector('#cont');
+  const htmlTextToAdd = '<section id="sec"><div class="landing__container"><div class="accordion"><h3 id="newTitle"></h3></div><div id="newContent" class="panel"></div></div></section>';
+  newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
+    
+  // Select location to insert section title
+  const insertTitle = document.getElementById('newTitle');
+    
+  // Select location to insert section content
+  const insertContent = document.getElementById('newContent');
+    
+  // Create new html in the sidebar to include a message to the user
+  const newMessage = document.querySelector('#sd');
+  const messageToAdd = '<div id="newAuthor"><h3 class="message"></h3><p class="message"></p></div>';
+  newMessage.insertAdjacentHTML('beforeend', messageToAdd);
+    
+  // Select location to insert author
+  const insertAuthor = document.querySelector('#newAuthor h3');
+    
+  // Select location to insert message
+  const insertMessage = document.querySelector('#newAuthor p');
+    
+  // Select location to change the section class
+  const insertClass = document.getElementById('sec');
+  
+  // End html //
+
+  // Change the class to the section added
+  insertClass.className = 'active';
+
+  // Add text node with input value to li element
   li.appendChild(document.createTextNode(newTitle));
+
+  // Add text node with input value
   p.appendChild(document.createTextNode(newText));
 
   // Append li to navbar
   navList.appendChild(li);
 
-  //Add title to the section title
+  // Add title to the section title
   insertTitle.textContent = newTitle;
 
-  //Add section text to the content area
+  // Add section text to the content area
   insertContent.appendChild(p);
 
-  
+  // Message for the user after inserting a new section
+  insertAuthor.textContent = `${newAuthor}:`;
+  insertMessage.textContent = 'You have successfully added a new section';
+
+  //Clear the form after submitting
+  clearForm();
 }
 
 
