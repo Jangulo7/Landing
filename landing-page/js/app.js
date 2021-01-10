@@ -20,7 +20,8 @@
 const form = document.getElementById('addForm');
 const navList = document.getElementById('navbar__list');
 const message = document.getElementById('sd');
-  
+
+
 
 /**
  * End Global Variables
@@ -33,12 +34,6 @@ function clearForm() {
   document.getElementById("addForm").reset();
 }
 
-// Form submit event
-form.addEventListener('submit', addSection);
-
-
-
-
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -47,6 +42,8 @@ form.addEventListener('submit', addSection);
 
 
 // Build the nav
+
+
 
 // Add a Section Title to the navbar and add the section text & author to the main content
 function addSection(e){
@@ -57,6 +54,21 @@ function addSection(e){
   const newTitle = document.getElementById('title').value;
   const newText = document.getElementById('section').value;
 
+  let count = 1;
+
+  if (i > 100){
+    // Create new html in the sidebar to include a message to the user
+    const newMessage = document.querySelector('#sd');
+    const messageToAdd = '<div id="newAuthor"><h3 class="message"></h3><p class="message"></p></div>';
+    newMessage.insertAdjacentHTML('beforeend', messageToAdd);
+
+    // Select location to insert message
+    const insertMessage = document.querySelector('#newAuthor p');
+    
+    // Message for the user after inserting a new section
+    insertMessage.textContent = 'You cannot add more sections in this webpage';
+  } else {
+    
   // Create new li element in the navbar
   const li = document.createElement('li');
 
@@ -89,37 +101,49 @@ function addSection(e){
   // Select location to change the section class
   const insertClass = document.getElementById('sec');
   // End html //
-
-  // Change the class to the section added and the text inside
-  insertClass.className = 'active';
-  p.className = 'active';
+  
+  // Change ids for future aditions
+  document.getElementById("sec").id = count;
+  document.getElementById("newTitle").id = count;
+  document.getElementById("newContent").id = count;
 
   // Add text node with input value to li element
   li.appendChild(document.createTextNode(newTitle));
 
   // Add text node with input value
   p.appendChild(document.createTextNode(newText));
-
+  
   // Append li to navbar
   navList.appendChild(li);
 
   // Add title to the section title
   insertTitle.textContent = newTitle;
-
+  
   // Add section text to the content area
   insertContent.appendChild(p);
-
+    
   // Message for the user after inserting a new section
   insertAuthor.textContent = `${newAuthor}:`;
   insertMessage.textContent = 'You have successfully added a new section';
+  
+  // Reset counter
+  count++;
 
   //Clear the form after submitting
   clearForm();
+  } // End if
 }
 
 
+// Event listener - Form submit event
+form.addEventListener('submit', addSection);
+  
 
 // Add class 'active' to section when near top of viewport
+
+  // Change the class to the section added and the text inside
+  //insertClass.className = 'active';
+  //p.className = 'active';
 
 
 // Scroll to anchor ID using scrollTO event
@@ -157,5 +181,4 @@ for (i = 0; i < acc.length; i++) {
       newAcc.classList.toggle('active');
     }
   });
-}
-
+  }
