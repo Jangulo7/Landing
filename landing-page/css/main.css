@@ -73,6 +73,14 @@ nav ul {
     margin: 0;
     background: #312626;
 }
+
+nav li {
+    color: whitesmoke;
+    display: block;
+    text-decoration: none;
+    padding: .5em 1em;
+    font-size: 16px;
+}
  
 nav li a {
     color: whitesmoke;
@@ -140,7 +148,7 @@ a {
   
 /* Style the accordion panel. */
 .panel {
-    padding: 0 18px;
+    padding: 0 10px;
     background-color: white;
     display: block;
     overflow: hidden;
@@ -193,13 +201,6 @@ a:active {
 }
 
 /* Subscribe Form */
-/* Style the form - display items horizontally */
-.form-inline {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: left;
-    margin: 20px 20px;
-}
   
 /* Margins for each label */
   .page__footer__inlineForm label {
@@ -213,7 +214,7 @@ a:active {
     vertical-align: middle;
     margin: 5px 10px 5px 0;
     padding: 5px;
-    background-color: #fff;
+    background-color: whitesmoke;
     border: 1px solid #ddd;
 }
 
@@ -224,12 +225,12 @@ a:active {
 }
 
 .data__form label {
-    color: #891337;
+    color: whitesmoke;
     font: large bold;
 }
 
 .data__form input[type=text] {
-    width: 50%;
+    width: 80%;
     padding: 12px 20px;
     margin: 20px 30px;
     box-sizing: border-box;
@@ -238,7 +239,7 @@ a:active {
 }
 
 .data__form textarea {
-    width: 50%;
+    width: 80%;
     height: 150px;
     margin: 20px 30px;
     padding: 12px 20px;
@@ -249,10 +250,35 @@ a:active {
     resize: none;
   }
 
+/* Add Section Form */
+/* Style the form - display items horizontally */
+.form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: left;
+    margin: 20px 20px;
+}
+  
+/* Margins for each label */
+  .main__hero__inlineForm label {
+    margin: 5px 10px 5px 0;
+    color: #891337;
+    padding: 5px 5px;
+}
+  
+/* Input fields Style */
+  .main__hero__inlineForm input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 10px;
+    padding: 5px;
+    border: 1px solid #891337;
+}
+
+
 
 /* Button Styles */
 .btn1 {
-    background-color: #891337;
+    background-color: #312626;
     border: none;
     color: whitesmoke;
     padding: 12px 16px;
@@ -260,7 +286,7 @@ a:active {
     font-size: 16px;
     cursor: pointer;
     border-radius: 8px;
-    width: 50%;
+    width: 80%;
 }
 
 .btn2 {
@@ -391,6 +417,10 @@ a:active {
     .btn2 {
         font-size: smaller;
     }
+
+    .data__form label {
+        font-size: smaller;
+    }
 }
 
 /* ---- Theme State Rules ---- */
@@ -398,6 +428,48 @@ a:active {
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.active {
     background: whitesmoke;
-    background: linear-gradient(0deg, #ddbdbd 0%, #891337 60%);
+    background: linear-gradient(0deg, #ddbdbd 0%,#312626 60%);
 }
 
+/* Two unequal columns */
+/* Left column */
+.main__content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 0 5vw 0 5vw;
+    padding: 40px 40px;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.cont {
+    display: grid;
+    justify-content: left;
+    align-items: top;
+    flex: 2;
+}
+
+/* Right column */
+.sd {
+    display: grid;
+    align-content:flex-start;
+    background-color: #891337;
+    margin: 20px 20px;
+    padding: 10px 10px;
+    border-radius: 10%;
+}
+
+.sd h1 {
+   text-align: center;
+   color: whitesmoke;
+}
+
+.sd label,
+textarea {
+    text-align: left;
+    padding-left: 30px;
+    font: 14px/1.5 "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+ }
+ 

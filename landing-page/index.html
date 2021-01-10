@@ -20,51 +20,56 @@
             <ul id="navbar__list">
                 <li><a href="#section1" class="active">Section 1</a></li>
                 <li><a href="#section2">Section 2</a></li>
-                <li><a href="#section3">Section 3</a></li>
             </ul>
         </nav>
     </header>
     <!-- Main Section -->
     <div class="main__hero">
-        <h1>Jangulo Landing Page</h1>
-        <button class="btn2" type="submit"><a href="./form.html">Create a new section here</a></button>
+        <h1 id="myTitle">Jangulo Landing Page</h1>
     </div>
-    <!-- Each Section has an ID (used for the anchor) and a data attribute that will populate the li node.
-    Adding more sections will automatically populate nav.
-    The first section is set to active class by default -->
-    <section id="section1" data-nav="Section 1" class="">
-        <div class="landing__container">
-            <div class="accordion">
-                <h3>Section 1</h3>
-            </div>
-            <div class="panel">
-                <p>Encouraging <em>girls from a young age to study the essential subjects such as Maths and Science</em>, that open doors for opportunities to go on to pursue a career in Artificial Intelligence, is going to be key to increasing the number of women in the sector in future. However, for women already working in tech who decide they’d like to change to a career in AI, it’s more a case of understanding where they can access the training, networking and resources they need.</p>
-                <p>Narrowing the gender gap in Technology is vital for so many reasons, the most pressing being establishing and sustaining genuine equality and access to opportunity regardless of gender. For AI it’s perhaps even more vital that the future is gender diverse and more and more women are represented in the sector because this technology continues to have an increasing amount of responsibility and influence over daily life. It will be damaging if it reinforces gender bias and inequality rather than becoming a powerful tool in working with us to progress gender equality in Tech and wider society.</p>
-            </div>
-        </div>    
-    </section>
-    <section id="section2" data-nav="Section 2" class="">
-        <div class="landing__container">  
-            <div class="accordion">
-                <h3>Section 2</h3>
-            </div>
-            <div class="panel">
-                <p>Encouraging <em>girls from a young age to study the essential subjects such as Maths and Science</em>, that open doors for opportunities to go on to pursue a career in Artificial Intelligence, is going to be key to increasing the number of women in the sector in future. However, for women already working in tech who decide they’d like to change to a career in AI, it’s more a case of understanding where they can access the training, networking and resources they need.</p>
-                <p>Narrowing the gender gap in Technology is vital for so many reasons, the most pressing being establishing and sustaining genuine equality and access to opportunity regardless of gender. For AI it’s perhaps even more vital that the future is gender diverse and more and more women are represented in the sector because this technology continues to have an increasing amount of responsibility and influence over daily life. It will be damaging if it reinforces gender bias and inequality rather than becoming a powerful tool in working with us to progress gender equality in Tech and wider society.</p>
-            </div>
-        </div>     
-    </section>
-    <section id="section3" data-nav="Section 3" class="">
-        <div class="landing__container">  
-             <div class="accordion">
-                <h3>Section 3</h3>
-            </div>
-            <div class="panel">
-                <p>Encouraging <em>girls from a young age to study the essential subjects such as Maths and Science</em>, that open doors for opportunities to go on to pursue a career in Artificial Intelligence, is going to be key to increasing the number of women in the sector in future. However, for women already working in tech who decide they’d like to change to a career in AI, it’s more a case of understanding where they can access the training, networking and resources they need.</p>
-                <p>Narrowing the gender gap in Technology is vital for so many reasons, the most pressing being establishing and sustaining genuine equality and access to opportunity regardless of gender. For AI it’s perhaps even more vital that the future is gender diverse and more and more women are represented in the sector because this technology continues to have an increasing amount of responsibility and influence over daily life. It will be damaging if it reinforces gender bias and inequality rather than becoming a powerful tool in working with us to progress gender equality in Tech and wider society.</p>
-            </div>
-        </div> 
-    </section>
+    <main class="main__content">
+        <!-- Each Section has an ID (used for the anchor) and a data attribute that will populate the li node.
+        Adding more sections will automatically populate nav.
+        The first section is set to active class by default -->
+        <div id="cont" class="cont">
+            <section id="section1" data-nav="Section 1">
+                <div class="landing__container">
+                    <div class="accordion">
+                        <h3>Section 1</h3>
+                    </div>
+                    <div class="panel">
+                        <p>Encouraging <em>girls from a young age to study the essential subjects such as Maths and Science</em>, that open doors for opportunities to go on to pursue a career in Artificial Intelligence, is going to be key to increasing the number of women in the sector in future. However, for women already working in tech who decide they’d like to change to a career in AI, it’s more a case of understanding where they can access the training, networking and resources they need.</p>
+                    </div>
+                </div>    
+            </section>
+            <section id="section2" data-nav="Section 2">
+                <div class="landing__container">  
+                    <div class="accordion">
+                        <h3>Section 2</h3>
+                    </div>
+                    <div class="panel">
+                        <p>Narrowing the gender gap in Technology is vital for so many reasons, the most pressing being establishing and sustaining genuine equality and access to opportunity regardless of gender. For AI it’s perhaps even more vital that the future is gender diverse and more and more women are represented in the sector because this technology continues to have an increasing amount of responsibility and influence over daily life. It will be damaging if it reinforces gender bias and inequality rather than becoming a powerful tool in working with us to progress gender equality in Tech and wider society.</p>
+                    </div>
+                </div>     
+            </section>
+        </div>
+            <!-- Sidebar Section -->
+            <aside class="sd" id="sd">  
+                <h1>Add a section<h1>
+                <!-- Form for data input.
+                When a new section is entered, then the section title will be dinamically added to the navbar -->
+                <form id="addForm" class="data__form">
+                    <label for="name">Author</label>
+                    <input id="name" type="text" name="name" placeholder="Insert author name">
+                    <label for="title">Section Title</label>
+                    <input id="title" type="text" placeholder="Insert section title">
+                    <label for="section">Section Text</label>
+                    <textarea id="section" cols="30" rows="10" placeholder="Insert section text"></textarea>
+                    <input type="submit" class="btn1" value="Submit">      
+                </form>
+            </aside>
+    </main>
+    <!-- Footer Section -->
     <footer class="page__footer">
         <h2>© Copyright Jangulo 2020</h2>
         <!-- Subscribe Form -->
