@@ -124,7 +124,8 @@ a {
     display:grid;
     align-items: flex-end;
     grid-template-columns: 12fr 6fr;
-    margin: 3em 3em;
+    margin: 1em 3em;
+    padding-left: 2em;
 }
 
 /* Collapsable section Styles*/    

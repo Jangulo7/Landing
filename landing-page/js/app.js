@@ -33,6 +33,11 @@ function clearForm() {
   document.getElementById("addForm").reset();
 }
 
+// Form submit event
+form.addEventListener('submit', addSection);
+
+
+
 
 /**
  * End Helper Functions
@@ -42,10 +47,6 @@ function clearForm() {
 
 
 // Build the nav
-
-// Form submit event
-form.addEventListener('submit', addSection);
-
 
 // Add a Section Title to the navbar and add the section text & author to the main content
 function addSection(e){
@@ -87,7 +88,6 @@ function addSection(e){
     
   // Select location to change the section class
   const insertClass = document.getElementById('sec');
-  
   // End html //
 
   // Change the class to the section added and the text inside
