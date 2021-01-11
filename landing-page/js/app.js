@@ -20,7 +20,7 @@
 const form = document.getElementById('addForm');
 const navList = document.getElementById('navbar__list');
 const message = document.getElementById('sd');
-let count = 1;
+let count = 4;
 
 
 /**
@@ -32,6 +32,33 @@ let count = 1;
 //Clear the form
 function clearForm() {
   document.getElementById("addForm").reset();
+}
+
+// Add class
+function addClass() {
+  const el = document.getElementById('sec');
+  //element.classList.add('active');
+  el.className = 'active';
+  p.className = 'active';
+}
+
+// Delete class
+function delClass() {
+  const el = document.getElementById('sec');
+  el.classList.remove('active');
+  //element.className = ' ';
+  p.className = ' ';
+}
+
+// Toggle class
+function hasClass() {
+  const el = document.getElementById('sec');
+  if (el.classList.contains('active')) {
+  el.classList.toggle(' ');
+  }
+  if (el.p.classList.contains('active')) {
+    el.classList.toggle(' ');
+  }
 }
 
 /**
@@ -51,20 +78,8 @@ function addSection(e){
   const newTitle = document.getElementById('title').value;
   const newText = document.getElementById('section').value;
 
-  if (i > 100){
-     // Create new html in the sidebar to include a message to the user
-     const newMessage = document.querySelector('#sd');
-     const messageToAdd = '<div id="newAuthor"><h3 class="message"></h3><p class="message"></p></div>';
-     newMessage.insertAdjacentHTML('beforeend', messageToAdd);
- 
-     // Select location to insert message
-     const insertMessage = document.querySelector('#newAuthor p');
-     
-     // Message for the user after inserting a new section
-     insertMessage.textContent = 'You cannot add more sections in this webpage';
-   } else {
-     
-   // Create new a & li elements for the navbar
+  if (count <= 7){
+       // Create new a & li elements for the navbar
    const a = document.createElement('a');
    const li = document.createElement('li');
 
@@ -104,7 +119,7 @@ function addSection(e){
    document.getElementById("newTitle").id = count;
    document.getElementById("newContent").id = count;
 
-   // Add link to navbar item added
+   // Scroll to section on link click
    const lk = document.getElementsByTagName('a');
    a.href = `#${count}`;
  
@@ -132,6 +147,22 @@ function addSection(e){
  
    //Clear the form after submitting
    clearForm();
+
+
+
+
+   } else {
+          // Create new html in the sidebar to include a message to the user
+          const newMessage = document.querySelector('#sd');
+          const messageToAdd = '<div id="newAuthor"><h3 class="message"></h3><p class="message"></p></div>';
+          newMessage.insertAdjacentHTML('beforeend', messageToAdd);
+      
+          // Select location to insert message
+          const insertMessage = document.querySelector('#newAuthor p');
+          
+          // Message for the user after inserting a new section
+          insertMessage.textContent = 'You cannot add more sections in this webpage';
+
   } // End if
 }
 
@@ -141,10 +172,21 @@ form.addEventListener('submit', addSection);
   
 
 // Add class 'active' to section when near top of viewport
+/**window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+  // Select location to change the section class
+  document.getElementById('landing__container');
 
   // Change the class to the section added and the text inside
-  //insertClass.className = 'active';
-  //p.className = 'active';
+  insertClass.className = 'active';
+  p.className = 'active';
+
+  } else {
+    document.getElementById('landing__container').className = "";
+  }
+} */
 
 
 // Scroll to anchor ID using scrollTO event
@@ -156,9 +198,7 @@ form.addEventListener('submit', addSection);
  * 
 */
 
-// Build menu 
 
-// Scroll to section on link click
 
 // Set sections as active
 
