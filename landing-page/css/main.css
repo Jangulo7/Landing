@@ -444,7 +444,7 @@ section.active {
     min-height: 100vh;
 }
 
-.cont {
+.main__content__cont {
     display: grid;
     justify-content: left;
     align-items: top;
@@ -452,7 +452,7 @@ section.active {
 }
 
 /* Right column */
-.sd {
+.main__content__sd {
     display: grid;
     align-content:flex-start;
     background-color: #891337;
@@ -461,12 +461,12 @@ section.active {
     border-radius: 10%;
 }
 
-.sd h1 {
+.main__content__sd h1 {
    text-align: center;
    color: whitesmoke;
 }
 
-.sd label,
+.main__content__sd label,
 textarea {
     text-align: left;
     padding-left: 30px;

@@ -36,13 +36,12 @@ function clearForm() {
 
 // Add class
 function addClass() {
+    // Set sections as active
     // Select location to change the section class
-    //const insertClass = document.getElementById('sec');
-    const insertClass = document.getElementsByTagName('section');
+    const insertClass = document.getElementById(`sec${count}`);
 
-    // Change the class to the section added and the text inside
+    // Change the class to the section added to active
     insertClass.className = 'active';
-    p.className = 'active';
 }
 
 // Delete class
@@ -103,14 +102,7 @@ function addSection(e){
      
     // Select location to insert message
     const insertMessage = document.querySelector('#newAuthor p');
-    
-    // Select location to change the section class
-    //const insertClass = document.getElementById('sec');
-
-    // Change the class to the section added and the text inside
-    //insertClass.className = 'active';
-    //p.className = 'active';
-         
+             
     // Change ids for future aditions
     document.getElementById("sec").id = `sec${count}`;
     document.getElementById("newTitle").id = count;
@@ -139,11 +131,7 @@ function addSection(e){
     insertAuthor.textContent = `${newAuthor}:`;
     insertMessage.textContent = 'You have successfully added a new section';   
 
-    // Select location to change the section class
-    const insertClass = document.getElementById(`sec${count}`);
-
-    // Change the class to the section added
-    insertClass.className = 'active';
+    addClass();
        
     // Reset counter
     count++;
@@ -179,9 +167,11 @@ function addSection(e){
 // Event listener - Form submit event
 form.addEventListener('submit', addSection);
   
-/**
+
 // Add class 'active' to section when near top of viewport
 
+
+/**
 // Helper function
 const isInViewport = function (elem) {
   const bounding = elem.getBoundingClientRect();
@@ -196,23 +186,23 @@ const isInViewport = function (elem) {
 // Get the h1 heading
 const h1 = document.querySelector('h1');
   if (isInViewport(h1)) {
-    //const mySec = document.querySelector('section');
-    const mySec = document.getElementById('section2');
+    const positionScroll = document.getElementById(`sec${count}`).id;
+    const mySec = document.getElementById(positionScroll);
     window.addEventListener('scroll', function (event) {
     if (isInViewport(mySec)) {
       mySec.classList.add('active');
     }
   }, false);
 }
-
 */
+
 
 
 // Scroll to anchor ID using scrollTO event
 
 
 
-// Set sections as active
+
 
 
 /* Collapsable Sections */
