@@ -477,3 +477,8 @@ textarea {
     text-align: center;
     color: whitesmoke;
 }
+
+.main__content__cont__sec {
+    color: #312626;
+    text-align: justify;
+}

@@ -36,19 +36,28 @@ function clearForm() {
 
 // Add class
 function addClass() {
-    // Select location to change the section class
-    const insertClass = document.getElementById(`sec${count}`);
+  // Select location to change the section class
+  const insertClass = document.getElementById(`sec${count}`);
 
-    // Change the class to the section added to active
-    insertClass.className = 'active';
+  // Change the class to the section added to active
+  insertClass.className = 'active';
 }
 
 // Delete class
 function delClass() {
-    // Remove the active class
-    prevSec = count-2;
-    const removeClass = document.getElementById(`sec${prevSec}`);
-    removeClass.className = ' ';
+  // Remove the active class
+  prevSec = count-2;
+  const removeClass = document.getElementById(`sec${prevSec}`);
+  removeClass.className = ' ';
+}
+
+// Contain class
+function hasClass() {
+    // Select location of the element to evaluate
+    const containClass = document.getElementById(`sec${count}`);
+
+    // Determine if the element contains the active class
+    containClass.classList.contains('active');
 }
 
 /**
@@ -80,7 +89,7 @@ function addSection(e){
 
     // Create new html to insert new elements
     const newSection = document.querySelector('#cont');
-    const htmlTextToAdd = '<section id="sec" class=""><div class="landing__container"><div class="accordion"><h3 id="newTitle" class=""></h3></div><div id="newContent" class="panel"></div></div></section>';
+    const htmlTextToAdd = '<section id="sec" class="main__content__cont__sec"><div class="landing__container"><div class="accordion"><h3 id="newTitle" class=""></h3></div><div id="newContent" class="panel"></div></div></section>';
     newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
     
     // Select location to insert section title
@@ -165,39 +174,30 @@ form.addEventListener('submit', addSection);
   
 
 // Add class 'active' to section when near top of viewport
-
-
-/**
-// Helper function
-const isInViewport = function (elem) {
-  const bounding = elem.getBoundingClientRect();
+const isInViewport = function(elem) {
+  const distance = elem.getBoundingClientRect();
   return (
-      bounding.top >= 0 &&
-      bounding.left >= 0 &&
-      bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+    distance.top >= 0 &&
+    distance.left >= 0 &&
+    distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    distance.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 };
 
-// Get the h1 heading
-const h1 = document.querySelector('h1');
-  if (isInViewport(h1)) {
-    const positionScroll = document.getElementById(`sec${count}`).id;
-    const mySec = document.getElementById(positionScroll);
-    window.addEventListener('scroll', function (event) {
-    if (isInViewport(mySec)) {
-      mySec.classList.add('active');
+
+const scrollColor = document.querySelectorAll('.main__content__cont__sec');
+window.addEventListener('scroll', function(event) {
+// add event on scroll
+scrollColor.forEach(element => {
+    //for each to all elements in scrollColor
+    if (isInViewport(element)) {
+      //if in Viewport
+      element.classList.add("active");
+    } else {
+      element.classList.remove("active");
     }
-  }, false);
-}
-*/
-
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-
+});
+}, false);
 
 
 
