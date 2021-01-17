@@ -427,14 +427,9 @@ a:active {
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.active {
-    background: linear-gradient(0deg, #ddbdbd 0%,#312626 60%);
+    background: linear-gradient(0deg, white 0%,#ddbdbd 75%);
     border-radius: 15%;
 }
-
-.active {
-    color: whitesmoke;
-}
-
 
 /* Two unequal columns */
 /* Left column */
