@@ -29,14 +29,13 @@ let count = 5;
  * 
 */
 
-//Clear the form
+// Clear the form
 function clearForm() {
   document.getElementById("addForm").reset();
 }
 
 // Add class
 function addClass() {
-    // Set sections as active
     // Select location to change the section class
     const insertClass = document.getElementById(`sec${count}`);
 
@@ -46,12 +45,10 @@ function addClass() {
 
 // Delete class
 function delClass() {
-    // Select location to change the section class
-    const insertClass = document.getElementById(`sec${count}`);
-
-    // Change the class to the section added and the text inside
-    insertClass.className = ' ';
-    p.className = ' ';
+    // Remove the active class
+    prevSec = count-2;
+    const removeClass = document.getElementById(`sec${prevSec}`);
+    removeClass.className = ' ';
 }
 
 /**
@@ -131,6 +128,7 @@ function addSection(e){
     insertAuthor.textContent = `${newAuthor}:`;
     insertMessage.textContent = 'You have successfully added a new section';   
 
+    // Set added section as active
     addClass();
        
     // Reset counter
@@ -140,9 +138,7 @@ function addSection(e){
     clearForm();
 
     // Change the class of the previously added sections so that only the last added is active
-    prevSec = count-2;
-    const removeClass = document.getElementById(`sec${prevSec}`);
-    removeClass.className = ' ';
+    delClass();
 
    } else {
           // Create new html in the sidebar to include a message to the user
