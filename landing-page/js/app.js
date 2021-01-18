@@ -31,10 +31,10 @@ let count = 5;
 
 // Clear the form
 function clearForm() {
-  document.getElementById("addForm").reset();
+  document.getElementById('addForm').reset();
 }
 
-// Add class
+// Add class active
 function addClass() {
   // Select location to change the section class
   const insertClass = document.getElementById(`sec${count}`);
@@ -43,21 +43,50 @@ function addClass() {
   insertClass.className = 'active';
 }
 
-// Delete class
+// Delete class active
 function delClass() {
   // Remove the active class
   prevSec = count-2;
   const removeClass = document.getElementById(`sec${prevSec}`);
-  removeClass.className = ' ';
+  removeClass.className = '';
 }
 
 // Contain class
 function hasClass() {
-    // Select location of the element to evaluate
-    const containClass = document.getElementById(`sec${count}`);
+  // Select location of the element to evaluate
+  const containClass = document.getElementById(`sec${count}`);
 
-    // Determine if the element contains the active class
-    containClass.classList.contains('active');
+  // Determine if the element contains the active class
+  containClass.classList.contains('active');
+}
+
+// Message class
+//Include a success message to the user when a new section is created
+function successMessage() {
+  // Select location to insert message
+  const insertMessage = document.querySelector('#newAuthor p');
+  
+  // Message for the user when a new section cannot be added due to the set limit
+  insertMessage.textContent = 'You have successfully added a new section';
+  
+  // Set the message for only 3 seconds
+  setTimeout(function(){
+    document.getElementById('newAuthor').style.display = "none";
+    },3000);
+
+    document.getElementById('newAuthor').style.display = "block";
+}
+
+//Include a message to the user when the limit of 7 section is reached
+function failureMessage() {
+  // Set display
+  document.getElementById('newAuthor').style.display = "block";
+
+  // Select location to insert message
+  const insertMessage = document.querySelector('#newAuthor p');
+  
+  // Message for the user when a new section cannot be added due to the set limit
+  insertMessage.textContent = 'You cannot add more sections in this webpage';
 }
 
 /**
@@ -67,7 +96,7 @@ function hasClass() {
 */
 
 // Build the nav
-// Add a Section Title to the navbar and add the section text & author to the main content
+// Add a Section Title to the navbar and add the section title & text to the main content
 function addSection(e){
   e.preventDefault();
 
@@ -76,6 +105,8 @@ function addSection(e){
   const newTitle = document.getElementById('title').value;
   const newText = document.getElementById('section').value;
 
+  // The form allows the creation of seven sections. After that a message will be sent to the user.
+  // The limit of seven is adopted only for review purposes and it can be changed in the condition.
   if (count <= 7){
     // Create new a & li elements for the navbar
     const a = document.createElement('a');
@@ -97,12 +128,7 @@ function addSection(e){
      
     // Select location to insert section content
     const insertContent = document.getElementById('newContent');
-     
-    // Create new html in the sidebar to include a message to the user
-    const newMessage = document.querySelector('#sd');
-    const messageToAdd = '<div id="newAuthor"><h3 class="message"></h3><p class="message"></p></div>';
-    newMessage.insertAdjacentHTML('beforeend', messageToAdd);
-     
+         
     // Select location to insert author
     const insertAuthor = document.querySelector('#newAuthor h3');
      
@@ -118,10 +144,10 @@ function addSection(e){
     const lk = document.getElementsByTagName('a');
     a.href = `#${count}`;
  
-    // Add text node with input value to a element
+    // Add text node with input value (section title) to a element
     a.appendChild(document.createTextNode(newTitle));
  
-    // Add text node with input value
+    // Add text node with input value (section text) 
     p.appendChild(document.createTextNode(newText));
    
     // Append li to navbar
@@ -135,8 +161,9 @@ function addSection(e){
      
     // Message for the user after inserting a new section
     insertAuthor.textContent = `${newAuthor}:`;
-    insertMessage.textContent = 'You have successfully added a new section';   
-
+    
+    successMessage();
+    
     // Set added section as active
     addClass();
        
@@ -150,18 +177,14 @@ function addSection(e){
     delClass();
 
    } else {
-          // Create new html in the sidebar to include a message to the user
-          const newMessage = document.querySelector('#sd');
-          const messageToAdd = '<div id="newAuthor"><h3 class="message"></h3><p class="message"></p></div>';
-          newMessage.insertAdjacentHTML('beforeend', messageToAdd);
-      
-          // Select location to insert message
-          const insertMessage = document.querySelector('#newAuthor p');
-          
-          // Message for the user when a new section cannot be added due to the set limit
-          insertMessage.textContent = 'You cannot add more sections in this webpage';
+    // Create new html in the sidebar to include a message to the user
+    failureMessage();
+    clearForm();
   }
 }
+
+
+
 
 /**
  * End Main Functions
@@ -171,19 +194,18 @@ function addSection(e){
 
 // Event listener - Form submit event
 form.addEventListener('submit', addSection);
-  
+
 
 // Add class 'active' to section when near top of viewport
-const isInViewport = function(elem) {
-  const distance = elem.getBoundingClientRect();
-  return (
-    distance.top >= 0 &&
-    distance.left >= 0 &&
-    distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    distance.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-};
-
+  const isInViewport = function(elem) {
+    const distance = elem.getBoundingClientRect();
+    return (
+      distance.top >= 0 &&
+      distance.left >= 0 &&
+      distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      distance.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  };
 
 const scrollColor = document.querySelectorAll('.main__content__cont__sec');
 window.addEventListener('scroll', function(event) {
@@ -201,17 +223,15 @@ scrollColor.forEach(element => {
 
 
 
-/* Collapsable Sections */
-const acc = document.getElementsByClassName('accordion');
+// Collapsable Sections 
+const collapsableSec = document.getElementsByClassName('accordion');
 let i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener('click', function() {
+for (i = 0; i < collapsableSec.length; i++) {
+  collapsableSec[i].addEventListener('click', function() {
       const newAcc = this;
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
-    newAcc.classList.toggle('active');
-    /* Toggle between hiding and showing the active panel */
+    // Toggle between adding and removing the "active" class
+    // Toggle between hiding and showing the active panel
     const panel = newAcc.nextElementSibling;
     if (panel.style.display === 'none') {
       panel.style.display = 'block';

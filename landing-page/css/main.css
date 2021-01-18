@@ -200,24 +200,6 @@ a:active {
     font-size: 14px;
 }
 
-/* Subscribe Form */
-  
-/* Margins for each label */
-  .page__footer__inlineForm label {
-    margin: 5px 10px 5px 0;
-    color: whitesmoke;
-    padding-bottom: 5px;
-}
-  
-/* Input fields Style */
-  .page__footer__inlineForm input {
-    vertical-align: middle;
-    margin: 5px 10px 5px 0;
-    padding: 5px;
-    background-color: whitesmoke;
-    border: 1px solid #ddd;
-}
-
 /* Data Form */
 .data__form {
     display: grid;
@@ -481,4 +463,8 @@ textarea {
 .main__content__cont__sec {
     color: #312626;
     text-align: justify;
+}
+
+.main__content__sd_message {
+    font-size: small;
 }
