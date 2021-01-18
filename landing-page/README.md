@@ -32,9 +32,13 @@ A back to top button was added and it is visible inly when the user is near the 
 For code documentation and doubts, the following websites were used:
 
 [Udacity](http://www.udacity.com)
+
 [MDN Web Docs](https://developer.mozilla.org/es/docs/Web/JavaScript)
+
 [W3Schools](https://www.w3schools.com/)
+
 [StackOverFlow](https://stackoverflow.com/)
+
 [Dev Community](https://dev.to/)
 
 ## Disclaimer
