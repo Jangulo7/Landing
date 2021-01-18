@@ -51,15 +51,6 @@ function delClass() {
   removeClass.className = '';
 }
 
-// Contain class
-function hasClass() {
-  // Select location of the element to evaluate
-  const containClass = document.getElementById(`sec${count}`);
-
-  // Determine if the element contains the active class
-  containClass.classList.contains('active');
-}
-
 // Message class
 //Include a success message to the user when a new section is created
 function successMessage() {
@@ -71,16 +62,16 @@ function successMessage() {
   
   // Set the message for only 3 seconds
   setTimeout(function(){
-    document.getElementById('newAuthor').style.display = "none";
+    document.getElementById('newAuthor').style.display = 'none';
     },3000);
 
-    document.getElementById('newAuthor').style.display = "block";
+    document.getElementById('newAuthor').style.display = 'block';
 }
 
 //Include a message to the user when the limit of 7 section is reached
 function failureMessage() {
   // Set display
-  document.getElementById('newAuthor').style.display = "block";
+  document.getElementById('newAuthor').style.display = 'block';
 
   // Select location to insert message
   const insertMessage = document.querySelector('#newAuthor p');
@@ -135,10 +126,10 @@ function addSection(e){
     // Select location to insert message
     const insertMessage = document.querySelector('#newAuthor p');
              
-    // Change ids for future aditions
-    document.getElementById("sec").id = `sec${count}`;
-    document.getElementById("newTitle").id = count;
-    document.getElementById("newContent").id = `cont${count}`;
+    // Change ids for future additions
+    document.getElementById('sec').id = `sec${count}`;
+    document.getElementById('newTitle').id = count;
+    document.getElementById('newContent').id = `cont${count}`;
 
     // Scroll to section on link click
     const lk = document.getElementsByTagName('a');
@@ -183,9 +174,6 @@ function addSection(e){
   }
 }
 
-
-
-
 /**
  * End Main Functions
  * Begin Events
@@ -194,7 +182,6 @@ function addSection(e){
 
 // Event listener - Form submit event
 form.addEventListener('submit', addSection);
-
 
 // Add class 'active' to section when near top of viewport
   const isInViewport = function(elem) {
@@ -214,14 +201,12 @@ scrollColor.forEach(element => {
     //for each to all elements in scrollColor
     if (isInViewport(element)) {
       //if in Viewport
-      element.classList.add("active");
+      element.classList.add('active');
     } else {
-      element.classList.remove("active");
+      element.classList.remove('active');
     }
 });
 }, false);
-
-
 
 // Collapsable Sections 
 const collapsableSec = document.getElementsByClassName('accordion');
@@ -237,7 +222,36 @@ for (i = 0; i < collapsableSec.length; i++) {
       panel.style.display = 'block';
     } else {
       panel.style.display = 'none';
-      newAcc.classList.toggle('active');
     }
   });
   }
+
+// Scroll to top
+//When the user is near the bottom of the page a backToTop button appears 
+const backToTopBtn= document.querySelector('.main__content__cont--btn')
+const rootElement = document.documentElement
+
+function handleScroll() {
+  // do something on scroll
+  const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
+  if ((rootElement.scrollTop / scrollTotal ) > 0.90) {
+    //show button
+    backToTopBtn.style.display = 'block'
+  } else {
+    //hide button
+    backToTopBtn.style.display = 'none'
+  }
+}
+
+function backToTop() {
+  //scroll to top logic
+  rootElement.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
+
+// Back to top listeners
+backToTopBtn.addEventListener('click', backToTop);
+document.addEventListener('scroll', handleScroll);

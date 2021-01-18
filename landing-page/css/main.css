@@ -259,7 +259,7 @@ a:active {
 
 
 /* Button Styles */
-.btn1 {
+.addForm--btn {
     background-color: #312626;
     border: none;
     color: whitesmoke;
@@ -271,24 +271,13 @@ a:active {
     width: 80%;
 }
 
-.btn2 {
-    background-color: #891337;
-    border: none;
-    color: whitesmoke;
-    padding: 12px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 8px;
-    width: fit-content;
-}
-
 /* Darker background on mouse-over */
-.btn2:hover {
+.addForm--btn:hover {
     background-color: #582436;
     color: whitesmoke
 }
 
-.btn2 a:hover{
+.addForm--btn a:hover{
     color:whitesmoke;
     font-weight: bold;
 }
@@ -467,4 +456,23 @@ textarea {
 
 .main__content__sd_message {
     font-size: small;
+}
+
+/* Button - Scroll to top */
+.main__content__cont--btn {
+  border-radius: 8px;
+  width: 20%;
+  border-color: none;
+  background-color: #891337;
+  color: whitesmoke;
+  padding: 12px 16px;
+  margin: 20px 30px; 
+  /* Place it at the bottom center */
+  position: fixed;
+  bottom: 140px;
+  justify-content: flex-end;
+  /* keep it at the top of everything else */
+  z-index: 50;
+  /* Hide the button as default */
+  display: none;
 }
