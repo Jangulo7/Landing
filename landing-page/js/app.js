@@ -73,6 +73,15 @@ function failureMessage() {
   // Set display
   document.getElementById('newAuthor').style.display = 'block';
 
+  // Get input from form
+  const newAuthor = document.getElementById('name').value;
+  
+  // Select location to insert author
+  const insertAuthor = document.querySelector('#newAuthor h3');
+
+  // Message for the user after inserting a new section
+  insertAuthor.textContent = newAuthor;
+
   // Select location to insert message
   const insertMessage = document.querySelector('#newAuthor p');
   
