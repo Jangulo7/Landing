@@ -8,7 +8,7 @@
     <!-- Load Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  
     <!-- Load Styles -->
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
     <!-- Load Icons -->
     <script src="https://kit.fontawesome.com/4a69faab08.js" crossorigin="anonymous"></script>
 </head>
@@ -16,10 +16,12 @@
     <!-- Header Section -->
     <header class="page__header">
         <img src="images/logoJangulo.png" alt="Logo"/>
-        <nav class="navbar__menu">
+        <nav class="navbar__menu" id="nav">
             <ul id="navbar__list">
-                <li><a href="#section1" class="active">Section 1</a></li>
-                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#section1" class="active">STEAM</a></li>
+                <li><a href="#section2">JOBS</a></li>
+                <li><a href="#section3">TIC</a></li>
+                <li><a href="#section4">SW</a></li>
             </ul>
         </nav>
     </header>
@@ -31,30 +33,52 @@
         <!-- Each Section has an ID (used for the anchor) and a data attribute that will populate the li node.
         Adding more sections will automatically populate nav.
         The first section is set to active class by default -->
-        <div id="cont" class="cont">
-            <section id="section1" data-nav="Section 1" class="">
+        <div id="cont" class="main__content__cont">
+            <section id="section1" data-nav="Section 1" class="main__content__cont__sec">
                 <div class="landing__container">
                     <div class="accordion">
-                        <h3>Section 1</h3>
+                        <h3>STEAM</h3>
                     </div>
                     <div class="panel">
-                        <p>Encouraging <em>girls from a young age to study the essential subjects such as Maths and Science</em>, that open doors for opportunities to go on to pursue a career in Artificial Intelligence, is going to be key to increasing the number of women in the sector in future. However, for women already working in tech who decide they’d like to change to a career in AI, it’s more a case of understanding where they can access the training, networking and resources they need.</p>
+                        <p class="element">My goal is promoting the participation of women in science, technology, engineering, arts and math (STEAM). It is important to enhance the use of enabling technology to promote the empowerment of women. Information technology (IT) is key to that end. IT has the potential for making incremental progress in the everyday lives of women.  Narrowing the gender gap in Technology is vital for so many reasons, the most pressing being establishing and sustaining genuine equality and access to opportunity regardless of gender. For AI it’s perhaps even more vital that the future is gender diverse and more and more women are represented in the sector because this technology continues to have an increasing amount of responsibility and influence over daily life. It will be damaging if it reinforces gender bias and inequality rather than becoming a powerful tool in working with us to progress gender equality in Tech and wider society. Moreover, it is also the source for truly disruptive and game changing solutions for world challenges. Therefore, we all need to play our part in promoting STEAM among women.</p>
                     </div>
                 </div>    
             </section>
-            <section id="section2" data-nav="Section 2" class="">
+            <section id="section2" data-nav="Section 2" class="main__content__cont__sec">
                 <div class="landing__container">  
                     <div class="accordion">
-                        <h3>Section 2</h3>
+                        <h3>JOBS</h3>
                     </div>
                     <div class="panel">
-                        <p>Narrowing the gender gap in Technology is vital for so many reasons, the most pressing being establishing and sustaining genuine equality and access to opportunity regardless of gender. For AI it’s perhaps even more vital that the future is gender diverse and more and more women are represented in the sector because this technology continues to have an increasing amount of responsibility and influence over daily life. It will be damaging if it reinforces gender bias and inequality rather than becoming a powerful tool in working with us to progress gender equality in Tech and wider society.</p>
+                        <p>According to The Guardian, Jobs in tech permeate every sector, and many women in UK, from midwives to teachers to actors and career-break mothers, are discovering they don’t need a math or tech background to retrain and reinvent themselves.  Opus Talent Solutions indicates some 40% of people on their 12-week course have an arts or humanities degree, and a quarter have no degree, and ages range from late teens to people in their mid-50s. IT jobs board CW Jobs says since the pandemic, interest in digital careers has risen – more than half of non-tech workers (55%) have considered leapfrogging into the sector since the pandemic, but only 3% of girls and women say a tech career is their first choice, and just 16% ever had it suggested to them as an option – compared with a third of males. The main roles available in tech are programmers, cybersecurity specialists, data analysts and user experience (UX) and user interface (UI) designers.</p>
                     </div>
                 </div>     
             </section>
+            <section id="section3" data-nav="Section 3" class="main__content__cont__sec">
+                <div class="landing__container">  
+                    <div class="accordion">
+                        <h3>TIC</h3>
+                    </div>
+                    <div class="panel">
+                        <p>IT is integral to every business process, and IT teams interact with business teams, collaborating in dynamic work environments to transform their companies.  Since in many countries IT is less popular than it used to be in universities, many employers look beyond the disciplines of computer science to recruit into IT roles – science, math, and economics or business qualifications are considered.  Moreover, the fact that IT-related jobs are to be found within almost every organization, they allow great flexibility of career choice.  The best employers recognize the importance of retaining their female staff and encourage women to combine families and work. Since many IT jobs are project based, employers are able to offer many different flexible styles of working. The investment in training staff means that employers are keen to encourage women to keep in touch and return after a career break. Finally, various groups exist to support women in the IT industry, such as BCSWomen which is an online news group that offers career development workshops and networking meetings.</p>
+                    </div>
+                </div>     
+            </section>
+            <section id="section4" data-nav="Section 4" class="main__content__cont__sec">
+                <div class="landing__container">  
+                    <div class="accordion">
+                        <h3>SW</h3>
+                    </div>
+                    <div class="panel">
+                        <p>For years, the gender gap in software engineering has been a hot-button issue. Companies are working on inclusion efforts, all-women and women-identifying boot camps became more prominent, and the conversation about parity made it into mainstream dialogue. Yet the problem persists. The likelihood of success is higher for those entering college with previous programming experience, which disproportionately affects women. Without a computer science degree, a common option is a software engineering boot camp. According to Pew Research Center, 25% of computer-related jobs in STEM were held by women between 2014 and 2016, and the numbers have been declining over the years. Only 16% of the qualified STEM population are women. It seems like while there are not many women in the STEM workforce, there are even less who are considered to be qualified. Many women working in tech came from boot camps or are self-taught professionals. No matter where you obtained your tech skills, the world needs more women building software.</p>
+                    </div>
+                </div>     
+            </section>
+            <!-- Button scroll to top -->
+            <button class="main__content__cont--btn">Back to Top</button>
         </div>
             <!-- Sidebar Section -->
-            <aside class="sd" id="sd">  
+            <aside class="main__content__sd" id="sd">  
                 <h1>Add a section<h1>
                 <!-- Form for data input.
                 When a new section is entered, then the section title will be dinamically added to the navbar -->
@@ -65,21 +89,18 @@
                     <input id="title" type="text" placeholder="Insert section title">
                     <label for="section">Section Text</label>
                     <textarea id="section" cols="30" rows="10" placeholder="Insert section text"></textarea>
-                    <input type="submit" class="btn1" value="Submit">      
+                    <input type="submit" class="addForm--btn" value="Submit">      
                 </form>
+                <div id="newAuthor" class='main__content__sd_message'>
+                    <h3 class="message" id='user'></h3>
+                    <p class="message"></p>
+                </div>
             </aside>
     </main>
     <!-- Footer Section -->
     <footer class="page__footer">
+        <h2 id='test'>Member of Woman in Tech</h2>
         <h2>© Copyright Jangulo 2020</h2>
-        <!-- Subscribe Form -->
-        <form class="page__footer__inlineForm" id="form-subs">
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter email" name="email">
-            <label for="pwd">Password:</label>
-            <input type="password" id="pwd" placeholder="Enter password" name="pswd">
-            <button class="btn2" type="submit">Subscribe</button>
-        </form>        
         <div>
             <h2>Follow Me!</h2>
             <div class="page__footer__social">
