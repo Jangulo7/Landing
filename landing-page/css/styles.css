@@ -64,7 +64,7 @@ p {
 .navbar__menu {
     padding: 3em;
     font-family: sans-serif;
-    
+    position: flex;
 }
   
 nav ul {
@@ -91,6 +91,11 @@ nav li a {
 }
   
 nav li a:hover {
+    background:#891337;
+    color: whitesmoke;
+}
+
+nav li a:active {
     background:#891337;
     color: whitesmoke;
 }

@@ -18,7 +18,6 @@
  * 
 */
 const form = document.getElementById('addForm');
-const navList = document.getElementById('navbar__list');
 const message = document.getElementById('sd');
 const ct = document.getElementById('cont');
 let count = 5;
@@ -96,9 +95,22 @@ function failureMessage() {
 */
 
 // Build the nav
+
+// Event listener - DOM Content Loaded
+document.addEventListener('DOMContentLoaded', function () {
+      // Create new html to insert the nav
+      const newSection = document.querySelector('.page__header');
+      const htmlTextToAdd = '<nav class="navbar__menu" id="nav"><ul id="navbar__list"><li class="active"><a href="#section1">STEAM</a></li><li><a href="#section2">JOBS</a></li><li><a href="#section3">TIC</a></li><li><a href="#section4">SW</a></li></ul></nav>';
+      newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
+});
+
+// Increase nav elements dinamically with the form
+
 // Add a Section Title to the navbar and add the section title & text to the main content
 function addSection(e){
   e.preventDefault();
+
+  const navList = document.getElementById('navbar__list');
 
   // Get input values
   const newAuthor = document.getElementById('name').value;
@@ -123,11 +135,16 @@ function addSection(e){
     const htmlTextToAdd = '<section id="sec" class="main__content__cont__sec"><div class="landing__container"><div class="accordion"><h3 id="newTitle" class=""></h3></div><div id="newContent" class="panel"></div></div></section>';
     newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
     
+    // Change ids for future additions
+    document.getElementById('sec').id = `sec${count}`;
+    document.getElementById('newTitle').id = count;
+    document.getElementById('newContent').id = `cont${count}`;
+
     // Select location to insert section title
-    const insertTitle = document.getElementById('newTitle');
+    const insertTitle = document.getElementById(`${count}`);
      
     // Select location to insert section content
-    const insertContent = document.getElementById('newContent');
+    const insertContent = document.getElementById(`cont${count}`);
          
     // Select location to insert author
     const insertAuthor = document.querySelector('#newAuthor h3');
@@ -135,11 +152,6 @@ function addSection(e){
     // Select location to insert message
     const insertMessage = document.querySelector('#newAuthor p');
              
-    // Change ids for future additions
-    document.getElementById('sec').id = `sec${count}`;
-    document.getElementById('newTitle').id = count;
-    document.getElementById('newContent').id = `cont${count}`;
-
     // Scroll to section on link click
     const lk = document.getElementsByTagName('a');
     a.href = `#${count}`;
@@ -204,6 +216,7 @@ form.addEventListener('submit', addSection);
   };
 
 const scrollColor = document.querySelectorAll('.main__content__cont__sec');
+const scrollNav = document.querySelectorAll('nav a');
 window.addEventListener('scroll', function(event) {
 // add event on scroll
 scrollColor.forEach(element => {
@@ -211,6 +224,7 @@ scrollColor.forEach(element => {
     if (isInViewport(element)) {
       //if in Viewport
       element.classList.add('active');
+      scrollNav.classList.add('active');
     } else {
       element.classList.remove('active');
     }
