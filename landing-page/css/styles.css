@@ -61,44 +61,37 @@ p {
 /* ---- Module Rules ---- */
 /* Navigation Styles*/
 
-.navbar__menu {
-    padding: 3em;
-    font-family: sans-serif;
-    position: flex;
+nav {
+    position:fixed;
+    top:0;
+    left:0;
+    background:#55443D;
+    height:40px;
+    width:100%;
+    z-index: 1;
 }
-  
+
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background: #312626;
+    margin:0;
+    padding:0;
+    list-style:none;
+    position:relative;
+    display:table;
+    margin:0 auto;
 }
 
-nav li {
-    color: whitesmoke;
-    display: block;
-    text-decoration: none;
-    padding: .5em 1em;
-    font-size: 16px;
+nav ul li {
+    display:table-cell;
 }
- 
-nav li a {
-    color: whitesmoke;
-    display: block;
-    text-decoration: none;
-    padding: .5em 1em;
-    font-size: 16px;
-}
-  
-nav li a:hover {
-    background:#891337;
-    color: whitesmoke;
+        
+nav ul li a{
+    padding:10px 20px;
+    display:block;
+    color:white;
+    text-decoration:none;
+    transition:all 0.3s ease-in-out;     
 }
 
-nav li a:active {
-    background:#891337;
-    color: whitesmoke;
-}
 
 /* List Styles */
 /* Remove bullets */
@@ -124,13 +117,20 @@ a {
     padding: 10px;
 }
 
+.page_header_logo {
+    float: initial;
+    padding-top: 3em;
+}
+
 /* Hero section*/
 .main__hero {
     display:grid;
     align-items: flex-end;
     grid-template-columns: 12fr 6fr;
-    margin: 1em 3em;
+    margin-top: 2em;
+    margin-left: 3em;
     padding-left: 2em;
+    position: relative;
 }
 
 /* Collapsable section Styles*/    
@@ -195,8 +195,8 @@ a:hover {
 }
   
 /* selected link */
-a:active {
-    color: #b47a7a;
+a.active {
+    background-color: #891337;
     font-weight: bold;
 }
 

@@ -88,6 +88,28 @@ function failureMessage() {
   insertMessage.textContent = 'You cannot add more sections in this webpage';
 }
 
+// Form validation function.
+function validate() {
+  if( document.getElementById('name').value == "" ) {
+    alert( "Please provide your name!" );
+    document.form.Name.focus();
+    return false;
+  }
+  
+  if( document.getElementById('title').value == "" ) {
+    alert( "Please provide the section title!" );
+    document.form.newTitle.focus();
+    return false;
+  }
+
+  if( document.getElementById('section').value == "" ) {
+    alert( "Please provide the section name!" );
+    document.form.newSection.focus();
+    return false;
+  }  
+  
+}
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -100,7 +122,7 @@ function failureMessage() {
 document.addEventListener('DOMContentLoaded', function () {
       // Create new html to insert the nav
       const newSection = document.querySelector('.page__header');
-      const htmlTextToAdd = '<nav class="navbar__menu" id="nav"><ul id="navbar__list"><li class="active"><a href="#section1">STEAM</a></li><li><a href="#section2">JOBS</a></li><li><a href="#section3">TIC</a></li><li><a href="#section4">SW</a></li></ul></nav>';
+      const htmlTextToAdd = '<nav class="navbar__menu" id="nav"><ul id="navbar__list"><li><a href="#section1" class="active">STEAM</a></li><li><a href="#section2" class="">JOBS</a></li><li><a href="#section3" class="">TIC</a></li><li><a href="#section4" class="">SW</a></li></ul></nav>';
       newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
 });
 
@@ -110,6 +132,8 @@ document.addEventListener('DOMContentLoaded', function () {
 function addSection(e){
   e.preventDefault();
 
+  validate();
+  
   const navList = document.getElementById('navbar__list');
 
   // Get input values
@@ -204,6 +228,7 @@ function addSection(e){
 // Event listener - Form submit event
 form.addEventListener('submit', addSection);
 
+/**
 // Add class 'active' to section when near top of viewport
   const isInViewport = function(elem) {
     const distance = elem.getBoundingClientRect();
@@ -230,6 +255,7 @@ scrollColor.forEach(element => {
     }
 });
 }, false);
+*/
 
 // Collapsable Sections 
 const collapsableSec = document.getElementsByClassName('accordion');
@@ -278,3 +304,35 @@ function backToTop() {
 // Back to top listeners
 backToTopBtn.addEventListener('click', backToTop);
 document.addEventListener('scroll', handleScroll);
+
+
+// On scroll
+
+// Add class 'active' to section when near top of viewport
+const isInViewport = function(elem) {
+  const distance = elem.getBoundingClientRect();
+  return (
+    distance.top >= 0 &&
+    distance.left >= 0 &&
+    distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    distance.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+};
+
+const scrollColor = document.querySelectorAll('.main__content__cont__sec');
+const scrollNav = document.querySelectorAll('#navbar__list');
+window.addEventListener('scroll', function(event) {
+// add event on scroll
+scrollColor.forEach(element => {
+  //for each to all elements in scrollColor
+  if (isInViewport(element)) {
+    //if in Viewport
+    element.classList.add('active');
+    scrollNav.classList.add('active');
+  } else {
+    element.classList.remove('active');
+  }
+});
+}, false);
+
+
