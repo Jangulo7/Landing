@@ -20,6 +20,7 @@
 const form = document.getElementById('addForm');
 const message = document.getElementById('sd');
 const ct = document.getElementById('cont');
+const hd = document.getElementById('header');
 let count = 5;
 
 /**
@@ -117,12 +118,11 @@ function validate() {
 */
 
 // Build the nav
-
 // Event listener - DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function () {
       // Create new html to insert the nav
       const newSection = document.querySelector('.page__header');
-      const htmlTextToAdd = '<nav class="navbar__menu" id="nav"><ul id="navbar__list"><li><a href="#section1" class="active">STEAM</a></li><li><a href="#section2" class="">JOBS</a></li><li><a href="#section3" class="">TIC</a></li><li><a href="#section4" class="">SW</a></li></ul></nav>';
+      const htmlTextToAdd = '<nav class="navbar__menu" id="nav"><ul id="navbar__list"><li class="navbar__list--item"><a href="#section1" class=" " id="link1">STEAM</a></li><li class="navbar__list--item"><a href="#section2" class=" " id="link2">JOBS</a></li><li class="navbar__list--item"><a href="#section3" class=" " id="link3">TIC</a></li><li class="navbar__list--item"><a href="#section4" class=" " id="link4">SW</a></li></ul></nav>';
       newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
 });
 
@@ -133,7 +133,7 @@ function addSection(e){
   e.preventDefault();
 
   validate();
-  
+
   const navList = document.getElementById('navbar__list');
 
   // Get input values
@@ -156,11 +156,11 @@ function addSection(e){
 
     // Create new html to insert new elements
     const newSection = document.querySelector('#cont');
-    const htmlTextToAdd = '<section id="sec" class="main__content__cont__sec"><div class="landing__container"><div class="accordion"><h3 id="newTitle" class=""></h3></div><div id="newContent" class="panel"></div></div></section>';
+    const htmlTextToAdd = '<section id="section" class="main__content__cont__sec"><div class="landing__container"><div class="accordion"><h3 id="newTitle" class=""></h3></div><div id="newContent" class="panel"></div></div></section>';
     newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
     
     // Change ids for future additions
-    document.getElementById('sec').id = `sec${count}`;
+    document.getElementById('section').id = `section${count}`;
     document.getElementById('newTitle').id = count;
     document.getElementById('newContent').id = `cont${count}`;
 
@@ -228,34 +228,6 @@ function addSection(e){
 // Event listener - Form submit event
 form.addEventListener('submit', addSection);
 
-/**
-// Add class 'active' to section when near top of viewport
-  const isInViewport = function(elem) {
-    const distance = elem.getBoundingClientRect();
-    return (
-      distance.top >= 0 &&
-      distance.left >= 0 &&
-      distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      distance.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  };
-
-const scrollColor = document.querySelectorAll('.main__content__cont__sec');
-const scrollNav = document.querySelectorAll('nav a');
-window.addEventListener('scroll', function(event) {
-// add event on scroll
-scrollColor.forEach(element => {
-    //for each to all elements in scrollColor
-    if (isInViewport(element)) {
-      //if in Viewport
-      element.classList.add('active');
-      scrollNav.classList.add('active');
-    } else {
-      element.classList.remove('active');
-    }
-});
-}, false);
-*/
 
 // Collapsable Sections 
 const collapsableSec = document.getElementsByClassName('accordion');
@@ -276,12 +248,11 @@ for (i = 0; i < collapsableSec.length; i++) {
   }
 
 // Scroll to top
-//When the user is near the bottom of the page a backToTop button appears 
-const backToTopBtn= document.querySelector('.main__content__cont--btn')
-const rootElement = document.documentElement
+// When the user is near the bottom of the page a backToTop button appears 
+const backToTopBtn= document.querySelector('.main__content__cont--btn');
+const rootElement = document.documentElement;
 
 function handleScroll() {
-  // do something on scroll
   const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
   if ((rootElement.scrollTop / scrollTotal ) > 0.90) {
     //show button
@@ -293,20 +264,17 @@ function handleScroll() {
 }
 
 function backToTop() {
-  //scroll to top logic
+  //scroll to top
   rootElement.scrollTo({
     top: 0,
     behavior: 'smooth'
   })
 }
 
-
 // Back to top listeners
 backToTopBtn.addEventListener('click', backToTop);
 document.addEventListener('scroll', handleScroll);
 
-
-// On scroll
 
 // Add class 'active' to section when near top of viewport
 const isInViewport = function(elem) {
@@ -320,7 +288,6 @@ const isInViewport = function(elem) {
 };
 
 const scrollColor = document.querySelectorAll('.main__content__cont__sec');
-const scrollNav = document.querySelectorAll('#navbar__list');
 window.addEventListener('scroll', function(event) {
 // add event on scroll
 scrollColor.forEach(element => {
@@ -328,11 +295,20 @@ scrollColor.forEach(element => {
   if (isInViewport(element)) {
     //if in Viewport
     element.classList.add('active');
-    scrollNav.classList.add('active');
   } else {
     element.classList.remove('active');
   }
 });
 }, false);
 
+
+// Add active to nav element when scrolling for 2 seconds
+const myClick = hd.addEventListener('click', changeNav);
+
+function changeNav(e) {
+  const myTarget = e.target.id;
+  const myElem = document.getElementById(`${myTarget}`);
+  myElem.className = 'active';
+  setTimeout(function(){ myElem.className = ' '; }, 2000);
+}
 
