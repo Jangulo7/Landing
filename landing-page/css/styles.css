@@ -65,7 +65,7 @@ nav {
     position:fixed;
     top:0;
     left:0;
-    background:#55443D;
+    background:#312626;
     height:40px;
     width:100%;
     z-index: 1;
@@ -82,14 +82,19 @@ nav ul {
 
 nav ul li {
     display:table-cell;
+    color: white;
 }
         
-nav ul li a{
+nav ul li a {
     padding:10px 20px;
     display:block;
     color:white;
     text-decoration:none;
     transition:all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: white;
 }
 
 
@@ -370,6 +375,11 @@ a.active {
     em {
         font-weight: bold;
     }
+
+    .main__content__cont--btn {
+        font-size: larger;
+    }
+
   }
 
 /* Small screens */
@@ -396,6 +406,17 @@ a.active {
 
     .data__form label {
         font-size: smaller;
+    }
+
+    .main__content__cont--btn {
+        width: 80%;
+        margin-top: 2em;
+        padding: 1px 1px;
+    }
+
+    .main__content__sd {
+        width: fit-content;
+        margin-bottom: 10px;
     }
 }
 
@@ -463,9 +484,15 @@ textarea {
     font-size: small;
 }
 
+.main__content__cont--div {
+    margin: 2em  1em;
+    padding-top: 3em;
+}
+
 /* Button - Scroll to top */
 .main__content__cont--btn {
   border-radius: 8px;
+  font-size: small;
   width: 20%;
   border-color: none;
   background-color: #891337;
