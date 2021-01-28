@@ -35,40 +35,23 @@ function clearForm() {
 }
 
 // Message class
-//Include a success message to the user when a new section is created
+//Include a success message to the user when a new section is created for 3 seconds
 function successMessage() {
-  // Select location to insert message
   const insertMessage = document.querySelector('#newAuthor p');
-  
-  // Message for the user when a new section cannot be added due to the set limit
   insertMessage.textContent = 'You have successfully added a new section';
-  
-  // Set the message for only 3 seconds
   setTimeout(function(){
     document.getElementById('newAuthor').style.display = 'none';
     },3000);
-
     document.getElementById('newAuthor').style.display = 'block';
 }
 
 //Include a message to the user when the limit of 7 section is reached
 function failureMessage() {
-  // Set display
   document.getElementById('newAuthor').style.display = 'block';
-
-  // Get input from form
   const newAuthor = document.getElementById('name').value;
-  
-  // Select location to insert author
   const insertAuthor = document.querySelector('#newAuthor h3');
-
-  // Message for the user after inserting a new section
   insertAuthor.textContent = newAuthor;
-
-  // Select location to insert message
   const insertMessage = document.querySelector('#newAuthor p');
-  
-  // Message for the user when a new section cannot be added due to the set limit
   insertMessage.textContent = 'You cannot add more sections in this webpage';
 }
 
@@ -108,90 +91,46 @@ document.addEventListener('DOMContentLoaded', function () {
       newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
 });
 
-// Increase nav elements dinamically with the form
 
-// Add a Section Title to the navbar and add the section title & text to the main content
+// Increase nav elements dinamically with the form
 function addSection(e){
   e.preventDefault();
-
   validate();
-
   const navList = document.getElementById('navbar__list');
-
-  // Get input values
   const newAuthor = document.getElementById('name').value;
   const newTitle = document.getElementById('title').value;
   const newText = document.getElementById('section').value;
-
   // The form allows the creation of seven sections. After that a message will be sent to the user.
   // The limit of seven is adopted only for review purposes and it can be changed in the condition.
   if (count <= 7){
-    // Create new a & li elements for the navbar
     const a = document.createElement('a');
     const li = document.createElement('li');
-
-    // Append the a element to the li element
     li.appendChild(a);
-
-    // Create a new p element in the content area
     const p = document.createElement('p');
-
-    // Create new html to insert new elements
     const newSection = document.querySelector('#cont');
     const htmlTextToAdd = '<section id="section" class="main__content__cont__sec"><div class="landing__container"><div class="accordion"><h3 id="newTitle" class=""></h3></div><div id="newContent" class="panel"></div></div></section>';
     newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
-    
-    // Change ids for future additions
     document.getElementById('section').id = `section${count}`;
     document.getElementById('newTitle').id = count;
     document.getElementById('newContent').id = `cont${count}`;
-
-    // Select location to insert section title
     const insertTitle = document.getElementById(`${count}`);
-     
-    // Select location to insert section content
     const insertContent = document.getElementById(`cont${count}`);
-         
-    // Select location to insert author
     const insertAuthor = document.querySelector('#newAuthor h3');
-     
-    // Select location to insert message
     const insertMessage = document.querySelector('#newAuthor p');
-             
-    // Scroll to section on link click
     const lk = document.getElementsByTagName('a');
     a.href = `#section${count}`;
     a.className = ' ';
     a.id = `link${count}`;
- 
-    // Add text node with input value (section title) to a element
     a.appendChild(document.createTextNode(newTitle));
- 
-    // Add text node with input value (section text) 
     p.appendChild(document.createTextNode(newText));
-   
-    // Append li to navbar
     navList.appendChild(li);
- 
-    // Add title to the section title
     insertTitle.textContent = newTitle;
-   
-    // Add section text to the content area
     insertContent.appendChild(p);
-     
-    // Message for the user after inserting a new section
     insertAuthor.textContent = `${newAuthor}:`;
-    
-    successMessage();
-           
-    // Reset counter
+    successMessage();      
     count++;
-        
-    // Clear the form after submitting
     clearForm();
-
    } else {
-    // Create new html in the sidebar to include a message to the user
     failureMessage();
     clearForm();
   }
@@ -284,24 +223,15 @@ scrollColor.forEach(element => {
 const myClick = hd.addEventListener('click', changeNav);
 
 function changeNav(e) {
-  // Get clicked element and add active class
   const myTarget = e.target.id;
   console.log('Clicked id:' + myTarget);
   const myElem = document.getElementById(`${myTarget}`);  
   myElem.classList.add('active');
-  // Get all 'a' elements from nav and then exclude the one clicked
   const links = document.querySelectorAll('[id^="link"]');
-  // Convert link NodeList to an array
   const linksArr = Array.from(links);
-  //Extract only ids
   const result = linksArr.filter(x => x.id).map(x => x.id)
-  // Ge the index of the clicked element
   let removed = result.indexOf(myTarget, 0);
-  // Delete from the array the clicked element
   result.splice(removed,1);
-  console.log('The REMOVED element:' + removed);
-  console.log('The new array:' + result)
-  //remove active class from other 'a' element except one clicked
   result.forEach(element => document.getElementById(`${element}`).classList.remove('active'));
 }
 
@@ -334,6 +264,6 @@ function scrollAnchors(e, respond = null) {
 	}, 100);
 }
 
-//Listener
+//Listener of Smooth scrolling
 hd.addEventListener('click', scrollTo);
 
