@@ -22,6 +22,7 @@ const message = document.getElementById('sd');
 const ct = document.getElementById('cont');
 const hd = document.getElementById('header');
 let count = 5;
+let numClick = 0;
 
 /**
  * End Global Variables
@@ -32,23 +33,6 @@ let count = 5;
 // Clear the form
 function clearForm() {
   document.getElementById('addForm').reset();
-}
-
-// Add class active
-function addClass() {
-  // Select location to change the section class
-  const insertClass = document.getElementById(`sec${count}`);
-
-  // Change the class to the section added to active
-  insertClass.className = 'active';
-}
-
-// Delete class active
-function delClass() {
-  // Remove the active class
-  prevSec = count-2;
-  const removeClass = document.getElementById(`sec${prevSec}`);
-  removeClass.className = '';
 }
 
 // Message class
@@ -108,7 +92,6 @@ function validate() {
     document.form.newSection.focus();
     return false;
   }  
-  
 }
 
 /**
@@ -122,7 +105,7 @@ function validate() {
 document.addEventListener('DOMContentLoaded', function () {
       // Create new html to insert the nav
       const newSection = document.querySelector('.page__header');
-      const htmlTextToAdd = '<nav class="navbar__menu" id="nav"><ul id="navbar__list"><li class="navbar__list--item"><a href="#section1" class=" " id="link1">STEAM</a></li><li class="navbar__list--item"><a href="#section2" class=" " id="link2">JOBS</a></li><li class="navbar__list--item"><a href="#section3" class=" " id="link3">TIC</a></li><li class="navbar__list--item"><a href="#section4" class=" " id="link4">SW</a></li></ul></nav>';
+      const htmlTextToAdd = '<nav class="navbar__menu" id="nav"><ul id="navbar__list"><li><a href="#section1" class=" " id="link1">STEAM</a></li><li><a href="#section2" class=" " id="link2">JOBS</a></li><li><a href="#section3" class=" " id="link3">TIC</a></li><li><a href="#section4" class=" " id="link4">SW</a></li></ul></nav>';
       newSection.insertAdjacentHTML('beforeend', htmlTextToAdd);
 });
 
@@ -178,7 +161,9 @@ function addSection(e){
              
     // Scroll to section on link click
     const lk = document.getElementsByTagName('a');
-    a.href = `#${count}`;
+    a.href = `#section${count}`;
+    a.className = ' ';
+    a.id = `link${count}`;
  
     // Add text node with input value (section title) to a element
     a.appendChild(document.createTextNode(newTitle));
@@ -199,18 +184,12 @@ function addSection(e){
     insertAuthor.textContent = `${newAuthor}:`;
     
     successMessage();
-    
-    // Set added section as active
-    addClass();
-       
+           
     // Reset counter
     count++;
         
     // Clear the form after submitting
     clearForm();
-
-    // Change the class of the previously added sections so that only the last added is active
-    delClass();
 
    } else {
     // Create new html in the sidebar to include a message to the user
@@ -302,13 +281,31 @@ scrollColor.forEach(element => {
 }, false);
 
 
-// Add active to nav element when scrolling for 2 seconds
+// Add active to nav element when scrolling
 const myClick = hd.addEventListener('click', changeNav);
 
 function changeNav(e) {
+  // Get clicked element and add active class
   const myTarget = e.target.id;
-  const myElem = document.getElementById(`${myTarget}`);
+  console.log('Clicked id:' + myTarget);
+  const myElem = document.getElementById(`${myTarget}`);  
   myElem.className = 'active';
-  setTimeout(function(){ myElem.className = ' '; }, 2000);
+  // Get all 'a' elements from nav and then exclude the one clicked
+  const links = document.querySelectorAll('[id^="link"]');
+  // Convert link NodeList to an array
+  const linksArr = Array.from(links);
+  //Extract only ids
+  const result = linksArr.filter(x => x.id).map(x => x.id)
+  // Ge the index of the clicked element
+  let removed = result.indexOf(myTarget, 0);
+  // Delete from the array the clicked element
+  result.splice(removed,1);
+  console.log('The REMOVED element:' + removed);
+  console.log('The new array:' + result)
+  //remove active class from other 'a' element except one clicked
+  result.forEach(element => document.getElementById(`${element}`).classList.remove('active'));
 }
+
+
+
 
