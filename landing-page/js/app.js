@@ -22,7 +22,6 @@ const message = document.getElementById('sd');
 const ct = document.getElementById('cont');
 const hd = document.getElementById('header');
 let count = 5;
-let numClick = 0;
 
 /**
  * End Global Variables
@@ -281,7 +280,7 @@ scrollColor.forEach(element => {
 }, false);
 
 
-// Add active to nav element when scrolling
+// Add active class to nav element when clicked
 const myClick = hd.addEventListener('click', changeNav);
 
 function changeNav(e) {
@@ -289,7 +288,7 @@ function changeNav(e) {
   const myTarget = e.target.id;
   console.log('Clicked id:' + myTarget);
   const myElem = document.getElementById(`${myTarget}`);  
-  myElem.className = 'active';
+  myElem.classList.add('active');
   // Get all 'a' elements from nav and then exclude the one clicked
   const links = document.querySelectorAll('[id^="link"]');
   // Convert link NodeList to an array
@@ -306,6 +305,35 @@ function changeNav(e) {
   result.forEach(element => document.getElementById(`${element}`).classList.remove('active'));
 }
 
+// Smooth scrolling to sections
+function scrollTo() {
+	const links = document.getElementsByTagName('a');
+	for (let i = 0; i < links.length; i++) {
+		let link = links[i];
+		if ((link.href && link.href.indexOf('#') != -1) && ((link.pathname == location.pathname) || ('/' + link.pathname == location.pathname)) && (link.search == location.search)) {
+			link.onclick = scrollAnchors;
+		}
+	}
+}
 
+function scrollAnchors(e, respond = null) {
+	const distanceToTop = el => Math.floor(el.getBoundingClientRect().top);
+	e.preventDefault();
+	let targetID = (respond) ? respond.getAttribute('href') : this.getAttribute('href');
+	const targetAnchor = document.querySelector(targetID);
+	if (!targetAnchor) return;
+	const originalTop = distanceToTop(targetAnchor);
+	window.scrollBy({ top: originalTop, left: 0, behavior: 'smooth' });
+	const checkIfDone = setInterval(function() {
+		const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
+		if (distanceToTop(targetAnchor) === 0 || atBottom) {
+			targetAnchor.tabIndex = '-1';
+			window.history.pushState('', '', targetID);
+			clearInterval(checkIfDone);
+		}
+	}, 100);
+}
 
+//Listener
+hd.addEventListener('click', scrollTo);
 
